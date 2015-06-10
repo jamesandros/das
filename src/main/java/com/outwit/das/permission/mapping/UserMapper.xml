@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.outwit.das.permission.dao.UserMapper">
+	<sql id="user_cloumns">username,password,age,mobilenum,sign</sql>
+
+	<!-- 插入数据 -->
+	<insert id="insertUser" parameterType="User">
+		insert into t_user(
+		<include refid="user_cloumns" />
+		)
+		values (#{username,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{age,jdbcType=VARCHAR},
+		#{mobilenum,jdbcType=VARCHAR}, #{sign,jdbcType=VARCHAR}
+		)
+	</insert>
+	<!-- 通过单个id删除 -->
+	<delete id="deleteUserById" parameterType="java.lang.String">
+		delete from t_user
+		where id = #{id,jdbcType=VARCHAR}
+	</delete>
+
+	<delete id="deleteUserByIds" parameterType="java.util.List">
+		delete from t_user where id in
+		<foreach item="item" index="index" collection="ids" open="("
+			separator="," close=")">
+			#{ids,jdbcType=VARCHAR}
+		</foreach>
+	</delete>
+
+	<update id="updateUser" parameterType="User">
+		update t_user
+		<set>
+			<if test="username!= null and username !=''">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null and password !=''">
+				password = #{password,jdbcType=VARCHAR},
+			</if>
+			<if test="age != null and age !=''">
+				age = #{age,jdbcType=VARCHAR},
+			</if>
+			<if test="mobilenum != null and mobilenum !=''">
+				mobilenum = #{mobilenum,jdbcType=VARCHAR},
+			</if>
+			<if test="sign != null and sign !=''">
+				sign = #{sign,jdbcType=INTEGER},
+			</if>
+		</set>
+		<where>
+			<if test="id != null and id !=''">
+				and id = #{id,jdbcType=INTEGER}
+			</if>
+			<if test="username != null and username !=''">
+				and username = #{username,jdbcType=VARCHAR}
+			</if>
+			<if test="password != null and password !=''">
+				and password = #{password,jdbcType=VARCHAR}
+			</if>
+			<if test="age != null and age !=''">
+				and age = #{age,jdbcType=VARCHAR}
+			</if>
+			<if test="mobilenum != null and mobilenum !=''">
+				and mobilenum = #{mobilenum,jdbcType=VARCHAR}
+			</if>
+			<if test="sign != null and sign !=''">
+				and sign = #{sign,jdbcType=INTEGER}
+			</if>
+		</where>
+	</update>
+
+	<select id="selectUserList" parameterType="User" resultType="User">
+		select
+		<include refid="user_cloumns" />
+		from t_user
+		<where>
+			<if test="id != null and id !=''">
+				and id = #{id,jdbcType=INTEGER}
+			</if>
+			<if test="username != null and username !=''">
+				and username = #{username,jdbcType=VARCHAR}
+			</if>
+			<if test="password != null and password !=''">
+				and password = #{password,jdbcType=VARCHAR}
+			</if>
+			<if test="age != null and age !=''">
+				and age = #{age,jdbcType=VARCHAR}
+			</if>
+			<if test="mobilenum != null and mobilenum !=''">
+				and mobilenum = #{mobilenum,jdbcType=VARCHAR}
+			</if>
+			<if test="sign != null and sign !=''">
+				and sign = #{sign,jdbcType=INTEGER}
+			</if>
+		</where>
+		order by id desc
+	</select>
+</mapper>
