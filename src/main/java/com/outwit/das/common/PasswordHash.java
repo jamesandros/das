@@ -217,10 +217,12 @@ public class PasswordHash {
 //			}
 //		}
 		long s = System.currentTimeMillis();
-		String hash = PasswordHash.createHash("admin");
+		String hash = PasswordHash.createHash("dsaf324#5r24!");
 		System.out.println(System.currentTimeMillis()-s);
-		System.out.println(hash.length());
-		System.out.println(PasswordHash.validatePassword("admin", hash));
+		System.out.println(hash);
+		s = System.currentTimeMillis();
+		System.out.println(PasswordHash.validatePassword("dsaf324#5r24!", hash));
+		System.out.println(System.currentTimeMillis()-s);
 	}
 
 }
