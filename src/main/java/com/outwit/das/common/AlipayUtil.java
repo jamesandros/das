@@ -19,6 +19,8 @@ public class AlipayUtil {
 	   /**
      * 支付宝消息验证地址
      */
+	
+	
     private static final String HTTPS_VERIFY_URL = "https://mapi.alipay.com/gateway.do?service=notify_verify&";
 	/** 
      * 除去数组中的空值和签名参数
