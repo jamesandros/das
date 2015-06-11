@@ -17,6 +17,10 @@ import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondit
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+/**
+ * 方法名映射
+ * @author Administrator
+ */
 public class MyRequestMappingHandlerMapping extends
 		RequestMappingHandlerMapping {
 
