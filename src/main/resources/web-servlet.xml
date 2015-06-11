@@ -12,14 +12,16 @@
 		<mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/> -->
 	<!-- 控制层路径映射 -->
 	<mvc:annotation-driven />
-
-
+	
+	
+	
 	<!-- 自动扫描控制层下的所有@Controller类进行实例化 -->
 	<context:component-scan base-package="com.outwit.das.*.web.controller"></context:component-scan>
 	
 	
 	<!-- 名字处理器 -->
 	<bean name="handlerMapping" class="com.outwit.das.common.MyRequestMappingHandlerMapping"></bean>
+	
 	<!-- 视图处理器 -->
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

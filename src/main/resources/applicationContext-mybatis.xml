@@ -12,7 +12,7 @@
 	default-lazy-init="false">
 
 	<!--政策同步数据源配置开始 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+<!-- 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass" value="${das.jdbc.driverClassName}" />
 		<property name="jdbcUrl" value="${das.jdbc.url}" />
@@ -28,7 +28,13 @@
 		<property name="checkoutTimeout" value="${das.jdbc.checkoutTimeout}" />
 		<property name="acquireRetryAttempts" value="${das.jdbc.acquireRetryAttempts}" />
 	</bean>
-
+ -->
+	<!-- 阿里巴巴druid数据连接池 -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		destroy-method="close">
+		<property name="filters" value="config" />
+		<property name="connectionProperties" value="config.file=classpath:jdbc.properties" />
+	</bean>
 	<!-- 创建SqlSessionFactory -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />

@@ -24,8 +24,8 @@ public class UserController {
 	//@RequestMapping(value="permission/login.do",method=RequestMethod.GET)
 	//@ResponseBody
 	@RequestMapping()
-	@ResponseBody//如果添加这个。返回就是json 否则返回jsp
-	public Map<String,String> login(HttpServletRequest request){
+	//@ResponseBody//如果添加这个。返回就是json 否则返回jsp
+	public String login(){
 		Map<String,String> map = new HashMap<>();
 		User u  = new User();
 		u.setUsername("1234");
@@ -43,6 +43,6 @@ public class UserController {
 		map.put("u", "456");
 		System.out.println("1234");
 		
-		return map;
+		return "123";
 	}
 }
