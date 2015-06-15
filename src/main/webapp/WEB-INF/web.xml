@@ -32,6 +32,7 @@
 		</listener> -->
 	<!-- <listener> <listener-class>com.th.bdal.task.execute.StartTaskListener</listener-class> 
 		</listener> -->
+	
 
 	<servlet>
 		<servlet-name>springMVC</servlet-name>

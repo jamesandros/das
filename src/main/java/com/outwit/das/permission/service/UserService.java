@@ -5,6 +5,7 @@ import java.util.List;
 import com.outwit.das.exception.BusinessException;
 import com.outwit.das.permission.model.User;
 
+
 public interface UserService {
 	public void add(User model) throws BusinessException;
 

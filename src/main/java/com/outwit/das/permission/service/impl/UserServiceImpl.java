@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
+import com.caucho.hessian.server.HessianServlet;
 import com.outwit.das.exception.BusinessException;
 import com.outwit.das.page.MyPage;
 import com.outwit.das.page.Page;
@@ -13,6 +14,7 @@ import com.outwit.das.page.PageHelper;
 import com.outwit.das.permission.dao.UserMapper;
 import com.outwit.das.permission.model.User;
 import com.outwit.das.permission.service.UserService;
+
 
 @Service
 public class UserServiceImpl implements UserService{
@@ -35,7 +37,6 @@ public class UserServiceImpl implements UserService{
 
 	public void removeByIds(List<String> ids) throws BusinessException {
 		userMapper.deleteUserByIds(ids);
-		
 	}
 
 	public List<User> queryList(User user) throws BusinessException {

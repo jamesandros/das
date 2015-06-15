@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.remoting.caucho.HessianServiceExporter;
 
-import com.outwit.das.exception.BusinessException;
 
 public class DaslHessianServiceExporter extends HessianServiceExporter{
     
 	public void handleRequest(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
+		System.out.println("ok 进入了hessian");
 		String hessian_user = request.getParameter("hessian_user");
 		String hessian_password = request.getParameter("hessian_password");
 		if(!ObjectIsNullUtil.objIsNotNull(hessian_user) || !ObjectIsNullUtil.objIsNotNull(hessian_password)){
@@ -32,6 +32,7 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 				return;
 			}
 		}
+		
 		
 //		try {
 //			String comppanyServiceName = CompanyServiceImpl.class.getSimpleName();
