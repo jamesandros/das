@@ -2,9 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd"
 	default-lazy-init="true">
 
 	<!-- <mvc:resources mapping="/css/**" location="/css/" cache-period="31556926"/> 
@@ -12,17 +12,24 @@
 		<mvc:resources mapping="/images/**" location="/images/" cache-period="31556926"/> -->
 	<!-- 控制层路径映射 -->
 	<mvc:annotation-driven />
-	
+
 	<!-- 自动扫描控制层下的所有@Controller类进行实例化 -->
 	<context:component-scan base-package="com.outwit.das.*.web.controller"></context:component-scan>
 	<!-- 名字处理器映射 -->
-	<bean name="handlerMapping" class="com.outwit.das.common.MyRequestMappingHandlerMapping"></bean>
+	<bean class="com.outwit.das.common.MyRequestMappingHandlerMapping" />
+
+	<bean
+		class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping">
+		<property name="caseSensitive" value="true" />
+		<property name="basePackage" value="com.outwit.das.*.controller" />
+	</bean>
 	<!-- 视图处理器 -->
 	<bean id="jspViewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 		<property name="contentType" value="text/html;charset=utf-8" />
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
 	</bean>
 </beans>

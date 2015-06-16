@@ -16,7 +16,6 @@ import com.outwit.das.permission.model.User;
 import com.outwit.das.permission.service.UserService;
 
 @Controller
-@RequestMapping({"/user"})
 public class UserController {
 	@Autowired
 	private UserService userService;

@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.condition.RequestCondition;
 import org.springframework.web.servlet.mvc.condition.RequestMethodsRequestCondition;
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
+import org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping;
 
 /**
  * 方法名映射
@@ -31,7 +32,7 @@ public class MyRequestMappingHandlerMapping extends
 	private ContentNegotiationManager contentNegotiationManager = new ContentNegotiationManager();
 
 	private final List<String> fileExtensions = new ArrayList<String>();
-
+	
 	@Override
 	protected RequestMappingInfo getMappingForMethod(Method method,
 			Class<?> handlerType) {
