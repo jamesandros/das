@@ -5,6 +5,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
+import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.remoting.caucho.HessianServiceExporter;
 
 
@@ -19,8 +21,7 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 			Log.getCommon().debug("用户名或密码为空,非法请求");
 			return; 
 		}
-		
-		
+		//HttpRequestHandlerServlet
 		if("andros" == hessian_user){
 			Log.getCommon().debug("该用户不存在,不能完成请求");
 			return; 

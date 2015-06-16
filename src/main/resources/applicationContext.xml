@@ -15,8 +15,9 @@
 	<!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
 	<context:component-scan base-package="com.outwit.das.permission.service.*" />
 	
-	<context:property-placeholder location="classpath:jdbc.properties" />
+	
 	<!-- 获取spring容器已经实例化的bean -->
+	<bean class="com.outwit.das.common.InstantiationTracingBeanPostProcessor" />
 	<bean id="springContextUtil" class="com.outwit.das.common.SpringContextUtil" />
 	<!-- 缓存服务bean -->
 	<bean id="cacheManager" class="com.outwit.das.cache.CacheManagerImpl"></bean>
@@ -24,4 +25,5 @@
 		></bean> <aop:config> <aop:pointcut id="chcekPoint" expression="execution(public 
 		* com.th.bdal.*.*.*.service.*.*(..)) "/> <aop:advisor pointcut-ref="chcekPoint" 
 		advice-ref="accountSecurityCheckInterceptor"/> </aop:config> -->
+	<!--读取属性文件 <context:property-placeholder location="classpath:jdbc.properties" /> -->
 </beans>

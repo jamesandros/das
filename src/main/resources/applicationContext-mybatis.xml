@@ -40,7 +40,6 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
 	</bean>
-
 	<!-- ScanMapperFiles -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="com.outwit.das.*.dao" />

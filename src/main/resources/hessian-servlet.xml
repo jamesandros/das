@@ -12,8 +12,9 @@
 		http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
  	<!-- 部门服务接口开始 -->
-	<bean name="/permission/UserService" class="com.outwit.das.common.DaslHessianServiceExporter">
+	<!-- <bean name="/permission/UserService" class="com.outwit.das.common.DaslHessianServiceExporter">
 	    <property name="service" ref="userServiceImpl"/>
 	    <property name="serviceInterface" value="com.outwit.das.permission.service.UserService"/>
     </bean>
+     -->
 </beans>
