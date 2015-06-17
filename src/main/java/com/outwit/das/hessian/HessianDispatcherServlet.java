@@ -19,7 +19,7 @@ import com.outwit.das.utils.CollectionUtil;
 import com.outwit.das.utils.IocHelper;
 import com.outwit.das.utils.WebUtil;
 
-@WebServlet(urlPatterns = HessianConstant.URL_PREFIX + "/*", loadOnStartup = 0)
+//@WebServlet(urlPatterns = HessianConstant.URL_PREFIX + "/*", loadOnStartup = 0)
 public class HessianDispatcherServlet extends HessianServlet {
 	
 	private static final long serialVersionUID = 4974171086148904627L;

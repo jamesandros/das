@@ -22,28 +22,28 @@ public class UserController {
 	
 	//@RequestMapping(value="permission/login.do",method=RequestMethod.GET)
 	//@ResponseBody
-	@RequestMapping()
-	@ResponseBody//如果添加这个。返回就是json 否则返回jsp
-	public Map<String,String> login(HttpServletRequest request,User model) throws Exception{
-		System.out.println(request.getParameter("id"));
-		//System.out.println("id:"+model.getId());
-		Map<String,String> map = new HashMap<>();
-		User u  = new User();
-		u.setUsername("1234");
-		u.setSign("sadfsdafsd");
-		u.setAge("18");
-		u.setMobilenum("12341234");
-		u.setPassword("123412");
-		//u.setId("2");
-		try {
-			userService.add(u);
-		} catch (BusinessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		map.put("u", "456");
-		System.out.println("1234");
-		
-		return map;
-	}
+//	@RequestMapping()
+//	@ResponseBody//如果添加这个。返回就是json 否则返回jsp
+//	public Map<String,String> login(HttpServletRequest request,User model) throws Exception{
+//		System.out.println(request.getParameter("id"));
+//		//System.out.println("id:"+model.getId());
+//		Map<String,String> map = new HashMap<>();
+//		User u  = new User();
+//		u.setUsername("1234");
+//		u.setSign("sadfsdafsd");
+//		u.setAge("18");
+//		u.setMobilenum("12341234");
+//		u.setPassword("123412");
+//		//u.setId("2");
+//		try {
+//			userService.add(u);
+//		} catch (BusinessException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		map.put("u", "456");
+//		System.out.println("1234");
+//		
+//		return map;
+//	}
 }

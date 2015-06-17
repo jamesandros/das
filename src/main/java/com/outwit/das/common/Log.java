@@ -1,10 +1,11 @@
 package com.outwit.das.common;
 import org.apache.log4j.Logger;
+
 /**
  * 
- * @author 
- * @Date   2014-5-20
+ * @author andros
  *
+ * 2015年6月17日上午10:57:40
  */
 public class Log{
 	
@@ -14,12 +15,8 @@ public class Log{
 	private static Logger member =  Logger.getLogger("member");
 	//权限日志
 	private static Logger permission = Logger.getLogger("permission");
-	//机票日志
-	private static Logger ticket =  Logger.getLogger("ticket");
 	//缓存日志日志
 	private static Logger cache = Logger.getLogger("cache");
-	
-	
 	
 	public static Logger getCommon() {
 		return common;
@@ -33,8 +30,4 @@ public class Log{
 	public static Logger getCache() {
 		return cache;
 	}
-	public static Logger getTicket() {
-		return ticket;
-	}
-	
 }

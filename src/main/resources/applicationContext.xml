@@ -18,8 +18,10 @@
 	
 	
 	<!-- 获取spring容器已经实例化的bean -->
-	<bean class="com.outwit.das.common.InstantiationTracingBeanPostProcessor" />
+	<!-- <bean class="com.outwit.das.common.InstantiationTracingBeanPostProcessor" /> -->
+	<bean class="com.outwit.das.common.DynamicCreateHessianBean" />
 	
+	<!-- <bean class="com.outwit.das.common.MyBeanNameUrlHandlerMapping" lazy-init="true"></bean> -->
 	
 	<bean id="springContextUtil" class="com.outwit.das.common.SpringContextUtil" />
 	<!-- 缓存服务bean -->
