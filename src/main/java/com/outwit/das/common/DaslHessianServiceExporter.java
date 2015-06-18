@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.remoting.caucho.HessianServiceExporter;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import com.outwit.das.utils.ObjectUtil;
 import com.outwit.das.utils.PropsUtil;
 
@@ -24,17 +25,21 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 		}
 		super.handleRequest(request, response);  
 		//HttpRequestHandlerServlet
-		if(PropsUtil.getConfigMap().get("hessian.username").equals(hessian_user)){
-			 if(PropsUtil.getConfigMap().get("hessian.password").equals(hessian_password)){
-				 Log.getCommon().debug("验证通过执行下一步");
-				 super.handleRequest(request, response);
-			 }else{
-				 Log.getCommon().error("密码错误");
-				 return;
-			 }
-		}else{
-			Log.getCommon().error("用户名不存在");
-			return;
+		try {
+			if(PropsUtil.getConfigMap().get("hessian.username").equals(ConfigTools.encrypt(hessian_user))){
+				 if(PropsUtil.getConfigMap().get("hessian.password").equals(ConfigTools.encrypt(hessian_password))){
+					 Log.getCommon().debug("验证通过执行下一步");
+					 super.handleRequest(request, response);
+				 }else{
+					 Log.getCommon().error("密码错误");
+					 return;
+				 }
+			}else{
+				Log.getCommon().error("用户名不存在");
+				return;
+			}
+		} catch (Exception e) {
+			Log.getCommon().error("解密出错");
 		}
 		
 		
