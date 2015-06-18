@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
-import com.out.das.annotation.Hessian;
+import com.outwit.das.annotation.Hessian;
 import com.outwit.das.utils.ClassHelper;
 import com.outwit.das.utils.CollectionUtil;
 import com.outwit.das.utils.IocHelper;

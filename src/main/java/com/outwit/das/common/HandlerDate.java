@@ -15,6 +15,8 @@ import java.util.Random;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
+import com.outwit.das.utils.ObjectUtil;
+
 public class HandlerDate {
 
 	public static String yyyyMMddHHmmss = "yyyyMMddHHmmss";
@@ -155,7 +157,7 @@ public class HandlerDate {
 	 * @return
 	 */
 	public static String timeFormat(String time) {
-		if (ObjectIsNullUtil.objIsNotNull(time)) {
+		if (ObjectUtil.objIsNotNull(time)) {
 			return time.substring(0, 2) + ":" + time.substring(2, 4);
 		}
 		return time;

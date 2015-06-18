@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
-import com.out.das.annotation.Hessian;
+import com.outwit.das.annotation.Hessian;
 import com.outwit.das.utils.ClassHelper;
 import com.outwit.das.utils.CollectionUtil;
 import com.outwit.das.utils.IocHelper;

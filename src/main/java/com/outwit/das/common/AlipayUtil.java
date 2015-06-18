@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import com.outwit.das.common.PropertiesConfig;
+import com.outwit.das.utils.ObjectUtil;
 
 
 public class AlipayUtil {
@@ -123,7 +123,7 @@ public class AlipayUtil {
     
     public static String createUrl(String url,String input_charset){
     	StringBuilder parameter = new StringBuilder();
-    	if(ObjectIsNullUtil.objIsNotNull(url)){
+    	if(ObjectUtil.objIsNotNull(url)){
     		String params[] =  url.split("&");
         	for(String str : params){
         		String key_value  [] = str.split("=");
