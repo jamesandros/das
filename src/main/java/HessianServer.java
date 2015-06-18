@@ -35,14 +35,14 @@ public class HessianServer {
 	 * @param uri 服务器的请求URI，除域名之外的部分
 	 * @return
 	 */
-//	public static Object createService(@SuppressWarnings("rawtypes") Class clazz,String module_url) {
-//		try {
-//			// 当接口类有方法被重载时，需设置 以下属性为真
-//			 s_objHessianProxyFactory.setConnectTimeout(60000);
-//			s_objHessianProxyFactory.setOverloadEnabled(true);
-//			return s_objHessianProxyFactory.create(clazz, PropertiesConfig.getHessianConfig().getProperty("hession_sersver")+PropertiesConfig.getHessianConfig().getProperty(module_url)+clazz.getSimpleName()+"?hessian_user="+PropertiesConfig.getHessianConfig().getProperty("hession_companyId")+"&hessian_password="+PropertiesConfig.getHessianConfig().getProperty("hession_privateKey"));
-//		} catch (Exception e) {
-//		    throw new RuntimeException(e);
-//		}
-//	}
+	public static Object createService(@SuppressWarnings("rawtypes") Class clazz,String module_url) {
+		try {
+			// 当接口类有方法被重载时，需设置 以下属性为真
+			 s_objHessianProxyFactory.setConnectTimeout(60000);
+			s_objHessianProxyFactory.setOverloadEnabled(true);
+			return s_objHessianProxyFactory.create(clazz,module_url);
+		} catch (Exception e) {
+		    throw new RuntimeException(e);
+		}
+	}
 }

@@ -2,11 +2,11 @@ package com.outwit.das.permission.service;
 
 import java.util.List;
 
-import com.out.das.annotation.Hessian;
+import com.outwit.das.annotation.Hessian;
 import com.outwit.das.exception.BusinessException;
 import com.outwit.das.permission.model.User;
 
-@Hessian
+@Hessian("/zenmepo")
 public interface UserService {
 	public void add(User model) throws BusinessException;
 
@@ -17,4 +17,5 @@ public interface UserService {
 	public void removeByIds(List<String> ids) throws BusinessException;
 
 	public List<User> queryList(User model) throws BusinessException;
+	
 }

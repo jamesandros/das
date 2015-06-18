@@ -1,15 +1,14 @@
 
 import com.outwit.das.exception.BusinessException;
-import com.outwit.das.hessian.HessianHelper;
 import com.outwit.das.permission.model.User;
 import com.outwit.das.permission.service.UserService;
 
 
 public class Client {
 	public static void main(String[] args) {
-		    String url = "http://localhost:8080/das/permission/UserService";
-	        UserService userservice = HessianHelper.createClient(url, UserService.class);
-	      //  UserService userservice=  (UserService)HessianServer.createService(url);
+		    String url = "http://localhost:8080/hessian/zenmepo/UserService?hessian_user=andros&hessian_password=andros520";
+	       
+	        UserService userservice= (UserService)HessianServer.createService(UserService.class,url);
 	        User u  = new User();
 			u.setUsername("1234");
 			u.setSign("sadfsdafsd");
