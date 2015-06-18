@@ -20,6 +20,8 @@ public class PropsUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(PropsUtil.class);
 
+    
+    private static final  Map<String,String> configMap = loadPropsToMap("config");
     /**
      * 加载属性文件
      */
@@ -141,4 +143,9 @@ public class PropsUtil {
         }
         return kvMap;
     }
+
+	public static Map<String, String> getConfigMap() {
+		return configMap;
+	}
+    
 }

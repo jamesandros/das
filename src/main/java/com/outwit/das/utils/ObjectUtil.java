@@ -105,4 +105,15 @@ public class ObjectUtil {
         }
         return fieldMap;
     }
+    /**
+     * 判断一个对象是否为空
+     * @param obj
+     * @return
+     */
+    public static boolean objIsNotNull(Object obj){
+    	if(obj!=null && !obj.toString().isEmpty() && !"null".equals(obj.toString())){
+    		return true;
+    	}
+    	return false;
+    }
 }

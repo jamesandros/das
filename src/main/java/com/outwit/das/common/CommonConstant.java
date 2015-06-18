@@ -76,5 +76,9 @@ public class CommonConstant {
      * 缓存常量名
      */
     public static final String MEM_CACHED = "mem_cached";
+    /**
+     * hessian接口前缀
+     */
+    public static final String  HESSIAN_PREFIX = "/hessian";
 
 }

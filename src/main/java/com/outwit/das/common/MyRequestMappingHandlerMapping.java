@@ -19,8 +19,10 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping;
 
 /**
- * 方法名映射
- * @author Administrator
+ * 
+ * @author andros
+ *
+ * 2015年6月18日下午3:05:43
  */
 public class MyRequestMappingHandlerMapping extends
 		RequestMappingHandlerMapping {
@@ -32,23 +34,19 @@ public class MyRequestMappingHandlerMapping extends
 	private ContentNegotiationManager contentNegotiationManager = new ContentNegotiationManager();
 
 	private final List<String> fileExtensions = new ArrayList<String>();
-	
+
 	@Override
 	protected RequestMappingInfo getMappingForMethod(Method method,
 			Class<?> handlerType) {
 		RequestMappingInfo info = null;
-		RequestMapping methodAnnotation = AnnotationUtils.findAnnotation(
-				method, RequestMapping.class);
+		RequestMapping methodAnnotation = AnnotationUtils.findAnnotation(method, RequestMapping.class);
 		if (methodAnnotation != null) {
 			RequestCondition<?> methodCondition = getCustomMethodCondition(method);
-			info = createRequestMappingInfo(methodAnnotation, methodCondition,
-					method);
-			RequestMapping typeAnnotation = AnnotationUtils.findAnnotation(
-					handlerType, RequestMapping.class);
+			info = createRequestMappingInfo(methodAnnotation, methodCondition,method);
+			RequestMapping typeAnnotation = AnnotationUtils.findAnnotation(handlerType, RequestMapping.class);
 			if (typeAnnotation != null) {
 				RequestCondition<?> typeCondition = getCustomTypeCondition(handlerType);
-				info = createRequestMappingInfo(typeAnnotation, typeCondition,
-						method).combine(info);
+				info = createRequestMappingInfo(typeAnnotation, typeCondition,method).combine(info);
 			}
 		}
 		return info;

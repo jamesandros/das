@@ -1,4 +1,4 @@
-package com.outwit.das.hessian;
+package com.out.das.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -10,5 +10,5 @@ import com.caucho.hessian.server.HessianServlet;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Hessian {
-    //String value(); // Hessian URL
+    String value() default ""; // Hessian URL
 }

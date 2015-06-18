@@ -1,5 +1,6 @@
 package com.outwit.das.utils;
 
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -18,8 +19,7 @@ public class IocHelper {
         Class<?> implementClass = interfaceClass;
         List<Class<?>> implementClassList = ClassHelper.getClassListBySuper(interfaceClass);
         if (CollectionUtil.isNotEmpty(implementClassList)) {
-            // 获取第一个实现类
-            implementClass = implementClassList.get(0);
+           implementClass = implementClassList.get(0);
         }
         return implementClass;
     }

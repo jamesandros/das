@@ -5,33 +5,36 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
-import org.springframework.context.annotation.AnnotatedBeanDefinitionReader;
 import org.springframework.remoting.caucho.HessianServiceExporter;
+
+import com.outwit.das.utils.ObjectUtil;
+import com.outwit.das.utils.PropsUtil;
 
 
 public class DaslHessianServiceExporter extends HessianServiceExporter{
     
 	public void handleRequest(HttpServletRequest request, HttpServletResponse response)  
             throws ServletException, IOException {  
-		System.out.println("ok 进入了hessian");
+		
 		String hessian_user = request.getParameter("hessian_user");
 		String hessian_password = request.getParameter("hessian_password");
-		if(!ObjectIsNullUtil.objIsNotNull(hessian_user) || !ObjectIsNullUtil.objIsNotNull(hessian_password)){
+		if(!ObjectUtil.objIsNotNull(hessian_user) || !ObjectUtil.objIsNotNull(hessian_password)){
 			Log.getCommon().debug("用户名或密码为空,非法请求");
 			return; 
 		}
+		super.handleRequest(request, response);  
 		//HttpRequestHandlerServlet
-		if("andros" == hessian_user){
-			Log.getCommon().debug("该用户不存在,不能完成请求");
-			return; 
+		if(PropsUtil.getConfigMap().get("hessian.username").equals(hessian_user)){
+			 if(PropsUtil.getConfigMap().get("hessian.password").equals(hessian_password)){
+				 Log.getCommon().debug("验证通过执行下一步");
+				 super.handleRequest(request, response);
+			 }else{
+				 Log.getCommon().error("密码错误");
+				 return;
+			 }
 		}else{
-			if("andros520".equals(hessian_password)){
-				super.handleRequest(request, response);  
-			}else{
-				Log.getCommon().debug("非法的用户请求");
-				return;
-			}
+			Log.getCommon().error("用户名不存在");
+			return;
 		}
 		
 		
