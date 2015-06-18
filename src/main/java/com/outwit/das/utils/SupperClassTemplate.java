@@ -2,9 +2,9 @@ package com.outwit.das.utils;
 
 /**
  * 用于获取子类的模板类
+ * @author andros
  *
- * @author huangyong
- * @since 2.3
+ * 2015年6月18日下午3:21:49
  */
 public abstract class SupperClassTemplate extends ClassTemplate {
 

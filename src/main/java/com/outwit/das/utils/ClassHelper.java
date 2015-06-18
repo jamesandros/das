@@ -5,9 +5,9 @@ import java.util.List;
 
 /**
  * 根据条件获取相关类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月21日下午3:08:10
  */
 public class ClassHelper {
 

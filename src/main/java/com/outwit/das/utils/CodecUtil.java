@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 编码与解码操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月18日下午3:09:06
  */
 public class CodecUtil {
 

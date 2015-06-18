@@ -25,9 +25,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Web 操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月18日下午3:22:07
  */
 public class WebUtil {
 

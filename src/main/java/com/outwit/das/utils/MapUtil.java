@@ -6,9 +6,9 @@ import org.apache.commons.collections.MapUtils;
 
 /**
  * 映射操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月9日
  */
 public class MapUtil {
 

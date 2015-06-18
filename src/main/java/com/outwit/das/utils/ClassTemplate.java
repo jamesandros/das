@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 用于获取类的模板类
+ * @author andros
  *
- * @author huangyong
- * @since 2.3
+ * 2015年5月18日下午3:08:28
  */
 public abstract class ClassTemplate {
 

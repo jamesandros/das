@@ -5,9 +5,9 @@ import java.util.List;
 
 /**
  * 类扫描器
+ * @author andros
  *
- * @author huangyong
- * @since 2.3
+ * 2015年6月33日下午3:08:17
  */
 public interface ClassScanner {
 

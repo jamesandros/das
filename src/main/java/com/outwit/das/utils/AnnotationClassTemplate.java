@@ -4,9 +4,9 @@ import java.lang.annotation.Annotation;
 
 /**
  * 用于获取注解类的模板类
+ * @author andros
  *
- * @author huangyong
- * @since 2.3
+ * 2015年6月18日下午3:07:36
  */
 public abstract class AnnotationClassTemplate extends ClassTemplate {
 

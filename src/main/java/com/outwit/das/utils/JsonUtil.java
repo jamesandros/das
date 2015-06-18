@@ -4,13 +4,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.outwit.das.permission.model.User;
 
 /**
  * JSON 操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年5月16日下午3:20:07
  */
 public class JsonUtil {
 
@@ -45,14 +44,4 @@ public class JsonUtil {
         }
         return obj;
     }
-    public static void main(String[] args) {
-    	User u  = new User();
-		u.setUsername("1234");
-		u.setSign("sadfsdafsd");
-		u.setAge("18");
-		u.setMobilenum("12341234");
-		u.setPassword("123412");
-		
-    	System.out.println(toJSON(u));
-	}
 }

@@ -2,9 +2,9 @@ package com.outwit.das.utils;
 
 /**
  * 转型操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月22日下午3:08:02
  */
 public class CastUtil {
 

@@ -5,9 +5,9 @@ import org.apache.commons.collections.CollectionUtils;
 
 /**
  * 集合操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月18日
  */
 public class CollectionUtil {
 

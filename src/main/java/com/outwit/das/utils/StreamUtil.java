@@ -9,9 +9,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 流操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月4日
  */
 public class StreamUtil {
 

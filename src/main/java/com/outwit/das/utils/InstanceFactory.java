@@ -5,9 +5,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 实例工厂
+ * @author andros
  *
- * @author huangyong
- * @since 2.3
+ * 2015年6月18日下午3:09:51
  */
 public class InstanceFactory {
 

@@ -6,9 +6,9 @@ import java.util.List;
 
 /**
  * 默认类扫描器
+ * @author andros
  *
- * @author huangyong
- * @since 2.3
+ * 2015年6月18日下午
  */
 public class DefaultClassScanner implements ClassScanner {
 

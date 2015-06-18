@@ -8,9 +8,9 @@ import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * 字符串操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年5月22日
  */
 public class StringUtil {
 

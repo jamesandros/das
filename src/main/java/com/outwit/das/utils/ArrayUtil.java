@@ -4,9 +4,9 @@ import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * 数组操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月19日下午3:07:48
  */
 public class ArrayUtil {
 

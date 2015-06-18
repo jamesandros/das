@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 类操作工具类
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月18日下午3:08:58
  */
 public class ClassUtil {
 

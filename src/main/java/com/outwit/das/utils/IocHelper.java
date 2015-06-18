@@ -5,10 +5,10 @@ import java.util.List;
 
 
 /**
- * 初始化 IOC 容器
+ *  IOC 容器 
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月18日下午3:10:01
  */
 public class IocHelper {
     /**

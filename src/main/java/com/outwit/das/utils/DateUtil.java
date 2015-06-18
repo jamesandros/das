@@ -9,8 +9,9 @@ import org.slf4j.LoggerFactory;
 /**
  * 日期操作工具类
  *
- * @author huangyong
- * @since 1.0
+ * @author andros
+ *
+ * 2015年5月07日下午3:09:25
  */
 public class DateUtil {
 

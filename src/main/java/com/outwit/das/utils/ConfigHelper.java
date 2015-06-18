@@ -6,9 +6,9 @@ import java.util.Properties;
 
 /**
  * 获取属性文件中的属性值
+ * @author andros
  *
- * @author huangyong
- * @since 1.0
+ * 2015年6月18日
  */
 public class ConfigHelper {
 
