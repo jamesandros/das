@@ -19,16 +19,16 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 		
 		String hessian_user = request.getParameter("hessian_user");
 		String hessian_password = request.getParameter("hessian_password");
+		System.out.println(hessian_user+":"+hessian_password);
 		if(!ObjectUtil.objIsNotNull(hessian_user) || !ObjectUtil.objIsNotNull(hessian_password)){
 			Log.getCommon().debug("用户名或密码为空,非法请求");
 			return; 
 		}
-		super.handleRequest(request, response);  
-		//HttpRequestHandlerServlet
 		try {
 			if(PropsUtil.getConfigMap().get("hessian.username").equals(ConfigTools.encrypt(hessian_user))){
 				 if(PropsUtil.getConfigMap().get("hessian.password").equals(ConfigTools.encrypt(hessian_password))){
 					 Log.getCommon().debug("验证通过执行下一步");
+					 System.out.println("验证通过执行下一步");
 					 super.handleRequest(request, response);
 				 }else{
 					 Log.getCommon().error("密码错误");
@@ -39,7 +39,7 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 				return;
 			}
 		} catch (Exception e) {
-			Log.getCommon().error("解密出错");
+			Log.getCommon().error(e);
 		}
 		
 		

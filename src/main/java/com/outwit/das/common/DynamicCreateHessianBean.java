@@ -21,20 +21,16 @@ public class DynamicCreateHessianBean implements ApplicationContextAware,Applica
 		if(null == event.getApplicationContext().getParent()){
             //需要执行的逻辑代码，当spring容器初始化完成后就会执行该方法。  
 			Log.getCommon().debug("开始创建hessianBean");
-			System.out.println("开始创建hessianBean");
-			
 			//得到所有有hessian的注解
 			List<Class<?>> hessianInterfaceList = ClassHelper.getClassListByAnnotation(Hessian.class);
 			DefaultListableBeanFactory acf = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
 			if (CollectionUtil.isNotEmpty(hessianInterfaceList)) {
-				
 				for (Class<?> hessianInterface : hessianInterfaceList) {
 	            	Class<?> implClass = IocHelper.findImplementClass(hessianInterface);
 	            	if(hessianInterface == implClass) {
 	            		continue;
 	            	}
 	                String implName = implClass.getSimpleName();
-	                System.out.println(implName);
 	                implName = implName.substring(0, 1).toLowerCase()+implName.substring(1, implName.length());
 	                //获取 Hessian URL
 	                String url = hessianInterface.getAnnotation(Hessian.class).value();
@@ -43,12 +39,12 @@ public class DynamicCreateHessianBean implements ApplicationContextAware,Applica
 	                	url = backpage.replace("com.outwit.das", "").replace(".service", "").replace('.','/');
 	                }
 	                String beanName = CommonConstant.HESSIAN_PREFIX + url + "/"+hessianInterface.getSimpleName();
-	                System.out.println(beanName);
 	                if(!applicationContext.containsBeanDefinition(beanName)){
 	                	BeanDefinitionBuilder userBeanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(DaslHessianServiceExporter.class);
 						userBeanDefinitionBuilder.addPropertyReference("service", implName);
 						userBeanDefinitionBuilder.addPropertyValue("serviceInterface", hessianInterface.getName());
-						acf.registerBeanDefinition(beanName, userBeanDefinitionBuilder.getBeanDefinition());	
+						acf.registerBeanDefinition(beanName, userBeanDefinitionBuilder.getBeanDefinition());
+						Log.getCommon().info(beanName+"-"+userBeanDefinitionBuilder.getBeanDefinition());
 	                }
 	            }
 	        }
