@@ -20,7 +20,7 @@ public class MemcacheManger {
 	
 	static{
 		try {
-			String url =PropertiesConfig.getCacheConfig().getProperty("cache").trim();
+			String url =PropertiesConfig.getConfig().getProperty("cache").trim();
 			if(url.contains("#")){
 				String ip_port [] = url.split("#");
 				memcachedClient = new MemcachedClient(new InetSocketAddress(ip_port[0], Integer.parseInt(ip_port[1])));

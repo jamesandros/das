@@ -28,7 +28,6 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 			if(PropsUtil.getConfigMap().get("hessian.username").equals(ConfigTools.encrypt(hessian_user))){
 				 if(PropsUtil.getConfigMap().get("hessian.password").equals(ConfigTools.encrypt(hessian_password))){
 					 Log.getCommon().debug("验证通过执行下一步");
-					 System.out.println("验证通过执行下一步");
 					 super.handleRequest(request, response);
 				 }else{
 					 Log.getCommon().error("密码错误");
@@ -41,17 +40,5 @@ public class DaslHessianServiceExporter extends HessianServiceExporter{
 		} catch (Exception e) {
 			Log.getCommon().error(e);
 		}
-		
-		
-//		try {
-//			String comppanyServiceName = CompanyServiceImpl.class.getSimpleName();
-//			CompanyService companyService = SpringContextUtil.getBean(comppanyServiceName.substring(0, 1).toLowerCase()+comppanyServiceName.substring(1, comppanyServiceName.length()));
-//			T_company t_company = companyService.findCompanyById(hessian_user);
-//			
-//			
-//		} catch (BusinessException e) {
-//			Log.getCommon().error("用户身份认证出错", e);
-//			return;
-//		}
     }  
 }

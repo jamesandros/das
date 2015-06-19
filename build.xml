@@ -1,58 +1,61 @@
 <?xml version="1.0" ?>
-<project name="bdal" default="bdal-jar" basedir=".">
+<project name="das" default="das-jar" basedir=".">
 	<property name="dist" value="dist" />
 	<property name="build" value="build" />
-	<property name="bdal-jar" value="bdal.jar" />
-	<property name="lib.dir" value="WebRoot/WEB-INF/lib" />
+	<property name="das-jar" value="das.jar" />
+	<property name="lib.dir" value="target\classes" />
 	<path id="project.class.path">
 		<pathelement path="${build}" />
 		<fileset dir="${lib.dir}">
 			<include name="**/*.jar" />
 		</fileset>
 	</path>
+	<!-- copy所有class包 -->
 	<target name="public" description="public file init">
-		<delete file="${dist}/${bdal-jar}" />
 		<delete includeEmptyDirs="true">
 			<fileset dir="${build}" includes="**/*" />
 		</delete>
-		<mkdir dir="${build}/com/th/bdal" />
-		<mkdir dir="${build}/com/th/bdal/basedata" />
-		<mkdir dir="${build}/com/th/bdal/cache" />
-		<mkdir dir="${build}/com/th/bdal/exception" />
-		<mkdir dir="${build}/com/th/bdal/paycenter" />
-		<mkdir dir="${build}/com/th/bdal/task" />
-		<mkdir dir="${build}/com/th/bdal/ticket" />
-		<mkdir dir="${build}/com/th/bdal/tools" />
-		<mkdir dir="${build}/com/th/bdal/travelguide" />
-		<mkdir dir="${build}/com/th/bdal/user" />
-		<mkdir dir="${build}/com/th/bdal/notice" />
-		<mkdir dir="${build}/com/th/bdal/hotel" />
+		<mkdir dir="${build}/com/outwit/das" />
+		<mkdir dir="${build}/com/outwit/das/annotation" />
+		<mkdir dir="${build}/com/outwit/das/cache" />
+		<mkdir dir="${build}/com/outwit/das/exception" />
+		<mkdir dir="${build}/com/outwit/das/permission" />
+		<mkdir dir="${build}/com/outwit/das/page" />
+		<mkdir dir="${build}/com/outwit/das/utils" />
+		<mkdir dir="${build}/com/outwit/das/common" />
 	</target>
 
-	<target name="bdal-init" depends="public">
-		<copy todir="${build}/com/th/bdal/basedata">
-			<fileset dir="target/classes/com/th/bdal/basedata">
+
+	<target name="das-init" depends="public">
+		<copy todir="${build}/com/outwit/das/permission">
+			<fileset dir="target/classes/com/outwit/das/permission">
 				<include name="**/*.*" />
 				<exclude name="service/impl/*.class" />
 				<exclude name="dao/*.class" />
-				<exclude name="sql/*.xml" />
+				<exclude name="mapping/*.xml" />
+				<exclude name="web/controller/*.class" />
 			</fileset>
 		</copy>
-		<copy todir="${build}/com/th/bdal/ticket">
-			<fileset dir="target/classes/com/th/bdal/ticket">
+		<copy todir="${build}/com/outwit/das/annotation">
+			<fileset dir="target/classes/com/outwit/das/annotation">
 				<include name="**/*.*" />
-				<exclude name="domestic/service/impl/book51/**/*.class" />
-				<exclude name="domestic/service/impl/*.class" />
-				<exclude name="domestic/dao/*.class" />
-				<exclude name="domestic/sql/*.xml" />
-				<exclude name="domestic/web/controller/*.class" />
+			</fileset>
+		</copy>
+		<copy todir="${build}/com/outwit/das/cache">
+			<fileset dir="target/classes/com/outwit/das/cache">
+				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${build}/com/outwit/das/utils">
+			<fileset dir="target/classes/com/outwit/das/utils">
+				<include name="**/*.*" />
 			</fileset>
 		</copy>
 	</target>
 
-	<target name="bdal-jar" depends="bdal-init" description="Creates the JAR file">
-		<jar destfile="${dist}/${bdal-jar}" basedir="${build}" />
-		<copy todir="D:/" file="${dist}/${bdal-jar}" />
+	<target name="das-jar" depends="das-init" description="Creates the JAR file">
+		<jar destfile="${dist}/${das-jar}" basedir="${build}" />
+		<copy todir="D:/" file="${dist}/${das-jar}" />
 	</target>
 	<!-- 生成天航box项目jar-->
 	<!--	<target name="thbox-jar" depends="bdal-init" description="Creates the JAR file">

@@ -184,22 +184,9 @@ public class HandlerDate {
 		}
 		return formatter.format(dayc.getTime());
 	}
-
-	/**
-	 * 随机生成26个字母中的其中一个
-	 * 
-	 * @return
-	 */
-	public static String getOneLetter() {
-		String str = "";
-		for (int i = 0; i < 1; i++) {// 你想生成几个字符的，就把3改成几，如果改成１,那就生成一个随机字母．
-			str = str + (char) (Math.random() * 26 + 'A');
-		}
-		return str;
-	}
-
+	
 	public static void main(String[] args) {
-		System.out.println(getOrderNo("PLE"));
+		System.out.println();
 	}
 	/**
 	 * 保证一次产生10000个随机数内无重复 平均一秒钟能产生250个随机数, 一次产生多订单慎用，会有内存溢出肯能
@@ -261,14 +248,6 @@ public class HandlerDate {
 				- length, idcardString.length());
 		return srcLoginPwdString;
 	}
-
-	public static boolean objIsNotNull(Object obj) {
-		if (obj != null && !obj.toString().isEmpty()) {
-			return true;
-		}
-		return false;
-	}
-
 	/**
 	 * 
 	 * @param args
@@ -278,14 +257,6 @@ public class HandlerDate {
 		String str = df.format(doub);
 		return Double.valueOf(str);
 	}
-
-	
-
-//	public static void main(String args[]) {
-//		int i = compareDate("2000-11-12 15:21:11", "1999-12-11 09:59");
-//		System.out.println("i==" + i);
-//	}
-
 	public static int compareDate(String DATE1, String DATE2) {
 
 		DateFormat df = new SimpleDateFormat(HandlerDate.yyyy_MM_ddHHmm);

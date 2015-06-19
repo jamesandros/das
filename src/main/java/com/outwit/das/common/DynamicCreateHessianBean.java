@@ -14,7 +14,7 @@ import com.outwit.das.annotation.Hessian;
 import com.outwit.das.utils.ClassHelper;
 import com.outwit.das.utils.CollectionUtil;
 import com.outwit.das.utils.IocHelper;
-import com.outwit.das.utils.ObjectUtil;
+import com.outwit.das.utils.StringUtil;
 public class DynamicCreateHessianBean implements ApplicationContextAware,ApplicationListener<ContextRefreshedEvent>{
 	private ApplicationContext applicationContext;  
 	public void onApplicationEvent(ContextRefreshedEvent event) {
@@ -23,15 +23,14 @@ public class DynamicCreateHessianBean implements ApplicationContextAware,Applica
 			Log.getCommon().debug("开始创建hessianBean");
 			//得到所有有hessian的注解
 			List<Class<?>> hessianInterfaceList = ClassHelper.getClassListByAnnotation(Hessian.class);
-			DefaultListableBeanFactory acf = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
 			if (CollectionUtil.isNotEmpty(hessianInterfaceList)) {
+				DefaultListableBeanFactory acf = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory();
 				for (Class<?> hessianInterface : hessianInterfaceList) {
 	            	Class<?> implClass = IocHelper.findImplementClass(hessianInterface);
 	            	if(hessianInterface == implClass) {
 	            		continue;
 	            	}
-	                String implName = implClass.getSimpleName();
-	                implName = implName.substring(0, 1).toLowerCase()+implName.substring(1, implName.length());
+	                String implName = StringUtil.firstToLower(implClass.getSimpleName());
 	                //获取 Hessian URL
 	                String url = hessianInterface.getAnnotation(Hessian.class).value();
 	                if("".equals(url)){
@@ -49,21 +48,6 @@ public class DynamicCreateHessianBean implements ApplicationContextAware,Applica
 	            }
 	        }
 		}
-		
-		
-		
-		
-//		if(!applicationContext.containsBeanDefinition("/hessian/myhessian/hessianok")){
-//			DefaultListableBeanFactory acf = (DefaultListableBeanFactory) applicationContext.getAutowireCapableBeanFactory(); 
-//			BeanDefinitionBuilder userBeanDefinitionBuilder = BeanDefinitionBuilder.genericBeanDefinition(DaslHessianServiceExporter.class);
-//			userBeanDefinitionBuilder.addPropertyReference("service", "userServiceImpl");
-//			userBeanDefinitionBuilder.addPropertyValue("serviceInterface", "com.outwit.das.permission.service.UserService");
-//			acf.registerBeanDefinition("/hessian/myhessian/hessianok", userBeanDefinitionBuilder.getBeanDefinition());	
-//			
-//			DaslHessianServiceExporter dsa  = (DaslHessianServiceExporter)applicationContext.getBean("/hessian/myhessian/hessianok");
-//			System.out.println(dsa.getService());
-//			System.out.println(dsa.getServiceInterface());
-//		}
 	}
 	public void setApplicationContext(ApplicationContext applicationContext)
 			throws BeansException {

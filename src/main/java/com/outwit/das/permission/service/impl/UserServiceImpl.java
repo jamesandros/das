@@ -15,9 +15,8 @@ import com.outwit.das.permission.dao.UserMapper;
 import com.outwit.das.permission.model.User;
 import com.outwit.das.permission.service.UserService;
 
-
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;
@@ -28,7 +27,7 @@ public class UserServiceImpl implements UserService{
 
 	public void modify(User user) throws BusinessException {
 		userMapper.updateUser(user);
-		
+
 	}
 
 	public void removeById(String id) throws BusinessException {
@@ -42,20 +41,16 @@ public class UserServiceImpl implements UserService{
 	public List<User> queryList(User user) throws BusinessException {
 		return userMapper.selectUserList(user);
 	}
-	
-	public MyPage<User> queryListByPage(User user,MyPage<User> myPage) throws BusinessException {
+
+	public MyPage<User> queryListByPage(User user, MyPage<User> myPage)
+			throws BusinessException {
 		PageHelper.startPage(myPage.getPageNum(), myPage.getPageSize());
 		try {
-			Page<User> page = (Page<User>)userMapper.selectUserList(user);
+			Page<User> page = (Page<User>) userMapper.selectUserList(user);
 			return myPage.convertToMyPage(page);
 		} catch (DataAccessException e) {
 			throw new BusinessException(e);
 		}
 	}
 
-	
-
-	
-	
-	
 }

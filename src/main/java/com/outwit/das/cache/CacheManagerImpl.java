@@ -46,7 +46,7 @@ public class CacheManagerImpl implements CacheManager{
 		try {
 			return future.get(CommonConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 		} catch (Exception e) {
-			Log.getCache().debug("set对象"+key+"异常",e);
+			Log.getCache().error("set对象"+key+"异常",e);
 			return false;
 		}
 	}
@@ -80,7 +80,7 @@ public class CacheManagerImpl implements CacheManager{
 		try {
 		    myObj=f.get(CommonConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 		}catch (Exception e) {
-			Log.getCache().debug("异步获取对象"+key+"异常",e);
+			Log.getCache().error("异步获取对象"+key+"异常",e);
 		} 
 		return (T)myObj;
 	}
@@ -99,7 +99,7 @@ public class CacheManagerImpl implements CacheManager{
 		try {
 		    myObj=f.get(time,TimeUnit.SECONDS);
 		}catch (Exception e) {
-			Log.getCache().debug("异步获取对象"+key+"异常",e);
+			Log.getCache().error("异步获取对象"+key+"异常",e);
 		}
 		return (T)myObj;
 	}
@@ -114,7 +114,7 @@ public class CacheManagerImpl implements CacheManager{
 		try {
 			return future.get(CommonConstant.DEFAULT_TIMEOUT, TimeUnit.SECONDS);
 		} catch (Exception e) {
-			Log.getCache().debug("删除对象"+key+"异常",e);
+			Log.getCache().error("删除对象"+key+"异常",e);
 			return false;
 		}
 	}

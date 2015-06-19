@@ -30,12 +30,10 @@ package com.outwit.das.common;
 
 import java.math.BigInteger;
 import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
 import java.security.SecureRandom;
-import java.security.Security;
 import java.security.spec.InvalidKeySpecException;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
@@ -50,13 +48,13 @@ public class PasswordHash {
 	public static final String PBKDF2_ALGORITHM = "PBKDF2WithHmacSHA512";
 
 	// The following constants may be changed without breaking existing hashes.
-	public static final int SALT_BYTE_SIZE = 24;
+	public static final int SALT_BYTE_SIZE = 48;
 	public static final int HASH_BYTE_SIZE = 24;
-	public static final int PBKDF2_ITERATIONS = 164331;
+	public static final int PBKDF2_ITERATIONS = 9999;
 
-	public static final int ITERATION_INDEX = 0;
+	public static final int ITERATION_INDEX = 2;
 	public static final int SALT_INDEX = 1;
-	public static final int PBKDF2_INDEX = 2;
+	public static final int PBKDF2_INDEX = 0;
 
 	/**
 	 * Returns a salted PBKDF2 hash of the password.
@@ -83,11 +81,12 @@ public class PasswordHash {
 		SecureRandom random = new SecureRandom();
 		byte[] salt = new byte[SALT_BYTE_SIZE];
 		random.nextBytes(salt);
-
+		
+		
 		// Hash the password
 		byte[] hash = pbkdf2(password, salt, PBKDF2_ITERATIONS, HASH_BYTE_SIZE);
 		// format iterations:salt:hash
-		return PBKDF2_ITERATIONS + ":" + toHex(salt) + ":" + toHex(hash);
+		return  toHex(hash) + "#" + toHex(salt) +"#" + PBKDF2_ITERATIONS;
 	}
 
 	/**
@@ -116,7 +115,7 @@ public class PasswordHash {
 	public static boolean validatePassword(char[] password, String correctHash)
 			throws NoSuchAlgorithmException, InvalidKeySpecException {
 		// Decode the hash into its parameters
-		String[] params = correctHash.split(":");
+		String[] params = correctHash.split("#");
 		int iterations = Integer.parseInt(params[ITERATION_INDEX]);
 		byte[] salt = fromHex(params[SALT_INDEX]);
 		byte[] hash = fromHex(params[PBKDF2_INDEX]);
@@ -216,13 +215,19 @@ public class PasswordHash {
 //				System.out.println(it.next());
 //			}
 //		}
-		long s = System.currentTimeMillis();
+//		long s = System.currentTimeMillis();
 		String hash = PasswordHash.createHash("dsaf324#5r24!");
-		System.out.println(System.currentTimeMillis()-s);
 		System.out.println(hash);
-		s = System.currentTimeMillis();
-		System.out.println(PasswordHash.validatePassword("dsaf324#5r24!", hash));
-		System.out.println(System.currentTimeMillis()-s);
+//		s = System.currentTimeMillis();
+//		System.out.println(PasswordHash.validatePassword("dsaf324#5r24!", hash));
+//		System.out.println(System.currentTimeMillis()-s);
+		
+		String regEx="[^0-9]";   
+		Pattern pattrn = Pattern.compile(regEx);   
+		Matcher matcher = pattrn.matcher("djyu2441fsd21"); 
+		System.out.println(matcher.replaceAll(""));
+		String s = "9cd2651f84170778dd6feb16ac0736e6ea6730c792cce2c10aecdd1677ee99a8d546a94aecf48251e2090cd67a559346";
+		System.out.println(s.length());
 	}
 
 }

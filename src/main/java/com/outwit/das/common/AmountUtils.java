@@ -66,7 +66,7 @@ public class AmountUtils {
 		if(!amount.matches(CURRENCY_FEN_REGEX)) {
 			throw new Exception("金额格式有误");
 		}
-		return BigDecimal.valueOf(Long.valueOf(amount)).divide(new BigDecimal(100)).toString();
+		return BigDecimal.valueOf(Long.valueOf(amount)).divide(new BigDecimal(10000)).toString();
 	}
 	
 	/** 
@@ -103,21 +103,12 @@ public class AmountUtils {
 	}
 	
 	public static void main(String[] args) {
-		System.out.println(BigDecimal.valueOf(12342354352L).divide(new BigDecimal(10000)));
 		try {
-			//System.out.println("结果："+changeF2Y("-000a00"));
-		} catch(Exception e){
-			//System.out.println("----------->>>"+e.getMessage());
-//			return e.getErrorCode();
-		} 
-//		System.out.println("结果："+changeY2F("1.00000000001E10"));
-		
-		System.out.println(AmountUtils.changeY2F("1000000000000000"));
-		System.out.println(Long.parseLong(AmountUtils.changeY2F("1000000000000000")));
-		System.out.println(Integer.parseInt(AmountUtils.changeY2F("10000000")));
-		System.out.println(Integer.MIN_VALUE);
-		long a = 0;
-		System.out.println(a);
+			System.out.println(changeF2Y("23124325142312"));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }

@@ -236,11 +236,4 @@ public class AlipayUtil {
         }
         return inputLine;
     }
-    
-   public static void main(String args[]){
-	   
-	   String string = "amount=979.0&body=去程  深圳→三亚  (2014-09-19 23:20)<br/>&comsume_no=C2014091719122904&notify_url=http://183.16.44.160:8888/thbox/ticket/domestic/responseSyncValidateNotifyInfo.do&out_trade_no=B2014091718474800&pay_type=thepay&return_url=http://183.16.44.160:8888/thbox/ticket/domestic/responseValidateNotifyInfo.do&subject=单程机票&trade_status=success&sign=6a5bb8be305a84b7c9b384bb8db7b077";
-	   String tmepString  = AlipayUtil.createUrl(string, "utf-8");
-	   System.out.println(tmepString);
-   }
 }

@@ -118,7 +118,6 @@ public class StringUtil {
     public static String firstToLower(String str) {
         return Character.toLowerCase(str.charAt(0)) + str.substring(1);
     }
-
     /**
      * 转为帕斯卡命名方式（如：FooBar）
      */

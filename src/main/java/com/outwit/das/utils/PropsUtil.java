@@ -22,6 +22,7 @@ public class PropsUtil {
 
     
     private static final  Map<String,String> configMap = loadPropsToMap("config");
+    
     /**
      * 加载属性文件
      */
