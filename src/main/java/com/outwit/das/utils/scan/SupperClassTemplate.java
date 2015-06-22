@@ -1,6 +1,5 @@
-package com.outwit.das.utils;
+package com.outwit.das.utils.scan;
 
-import com.outwit.das.utils.scan.ClassTemplate;
 
 /**
  * 用于获取子类的模板类
