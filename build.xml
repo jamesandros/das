@@ -17,7 +17,6 @@
 		</delete>
 		<mkdir dir="${build}/com/outwit/das" />
 		<mkdir dir="${build}/com/outwit/das/annotation" />
-		<mkdir dir="${build}/com/outwit/das/cache" />
 		<mkdir dir="${build}/com/outwit/das/exception" />
 		<mkdir dir="${build}/com/outwit/das/permission" />
 		<mkdir dir="${build}/com/outwit/das/page" />
@@ -41,14 +40,14 @@
 				<include name="**/*.*" />
 			</fileset>
 		</copy>
-		<copy todir="${build}/com/outwit/das/cache">
-			<fileset dir="target/classes/com/outwit/das/cache">
-				<include name="**/*.*" />
-			</fileset>
-		</copy>
 		<copy todir="${build}/com/outwit/das/utils">
 			<fileset dir="target/classes/com/outwit/das/utils">
 				<include name="**/*.*" />
+			</fileset>
+		</copy>
+		<copy todir="${build}/com/outwit/das/common">
+			<fileset dir="target/classes/com/outwit/das/common">
+				<include name="**/*Mapping.class" />
 			</fileset>
 		</copy>
 	</target>

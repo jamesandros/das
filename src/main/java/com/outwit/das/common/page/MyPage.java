@@ -1,4 +1,4 @@
-package com.outwit.das.page;
+package com.outwit.das.common.page;
 
 import java.util.List;
 

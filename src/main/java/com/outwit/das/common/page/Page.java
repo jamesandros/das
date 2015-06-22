@@ -1,4 +1,4 @@
-package com.outwit.das.page;
+package com.outwit.das.common.page;
 import org.apache.ibatis.session.RowBounds;
 import java.util.ArrayList;
 import java.util.List;

@@ -17,13 +17,13 @@ public class ClassHelper {
     /**
      * 获取基础包名
      */
-    private static final String basePackage = ConfigHelper.getString("outwit.das.base_package");
-
+    private static String basePackage = ConfigHelper.getString("base_package");
+    
     /**
      * 获取 ClassScanner
      */
     private static final ClassScanner classScanner = InstanceFactory.getClassScanner();
-
+    
     /**
      * 获取基础包名中的所有类
      */
@@ -44,4 +44,12 @@ public class ClassHelper {
     public static List<Class<?>> getClassListByAnnotation(Class<? extends Annotation> annotationClass) {
         return classScanner.getClassListByAnnotation(basePackage, annotationClass);
     }
+    /**
+     * 设置其他的包
+     * @param basePackage
+     */
+	public static void setBasePackage(String basePackage) {
+		ClassHelper.basePackage = basePackage;
+	}
+    
 }

@@ -1,4 +1,4 @@
-package com.outwit.das.exception;
+package com.outwit.das.common.exception;
 
 public class BusinessException extends Exception{
 

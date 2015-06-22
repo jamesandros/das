@@ -1,4 +1,4 @@
-package com.outwit.das.page;
+package com.outwit.das.common.page;
 import org.apache.ibatis.executor.Executor;
 import org.apache.ibatis.mapping.*;
 import org.apache.ibatis.plugin.*;

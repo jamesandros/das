@@ -27,6 +27,7 @@ import org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMap
 public class MyRequestMappingHandlerMapping extends
 		RequestMappingHandlerMapping {
 
+	
 	private boolean useSuffixPatternMatch = true;
 
 	private boolean useTrailingSlashMatch = true;

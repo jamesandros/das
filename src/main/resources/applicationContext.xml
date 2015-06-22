@@ -23,7 +23,7 @@
 	
 	<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" lazy-init="true"/>
 	
-	<bean class="com.outwit.das.common.SpringContextUtil" />
+	<bean class="com.outwit.das.utils.SpringContextUtil" />
 	<!-- 缓存服务bean -->
 	<bean id="cacheManager" class="com.outwit.das.cache.CacheManagerImpl"></bean>
 	<!-- 账户安全检查拦截器 <bean id="accountSecurityCheckInterceptor" class="com.th.bdal.tools.AccountSecurityCheckInterceptor" 

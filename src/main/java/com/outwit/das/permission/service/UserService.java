@@ -3,7 +3,7 @@ package com.outwit.das.permission.service;
 import java.util.List;
 
 import com.outwit.das.annotation.Hessian;
-import com.outwit.das.exception.BusinessException;
+import com.outwit.das.common.exception.BusinessException;
 import com.outwit.das.permission.model.User;
 
 @Hessian("/zenmepo")

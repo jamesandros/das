@@ -7,10 +7,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.caucho.hessian.server.HessianServlet;
-import com.outwit.das.exception.BusinessException;
-import com.outwit.das.page.MyPage;
-import com.outwit.das.page.Page;
-import com.outwit.das.page.PageHelper;
+import com.outwit.das.common.exception.BusinessException;
+import com.outwit.das.common.page.MyPage;
+import com.outwit.das.common.page.Page;
+import com.outwit.das.common.page.PageHelper;
 import com.outwit.das.permission.dao.UserMapper;
 import com.outwit.das.permission.model.User;
 import com.outwit.das.permission.service.UserService;

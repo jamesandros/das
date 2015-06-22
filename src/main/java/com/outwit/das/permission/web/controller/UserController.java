@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.outwit.das.exception.BusinessException;
+import com.outwit.das.common.exception.BusinessException;
 import com.outwit.das.permission.model.User;
 import com.outwit.das.permission.service.UserService;
 
