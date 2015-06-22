@@ -1,4 +1,4 @@
-package com.outwit.das.common;
+package com.outwit.das.utils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;

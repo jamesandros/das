@@ -3,6 +3,9 @@ package com.outwit.das.utils;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import com.outwit.das.utils.scan.ClassScanner;
+import com.outwit.das.utils.scan.DefaultClassScanner;
+
 /**
  * 实例工厂
  * @author andros

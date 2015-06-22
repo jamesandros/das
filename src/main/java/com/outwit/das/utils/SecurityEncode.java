@@ -1,4 +1,4 @@
-package com.outwit.das.common;
+package com.outwit.das.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;

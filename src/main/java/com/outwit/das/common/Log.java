@@ -6,10 +6,10 @@ import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 import com.outwit.das.annotation.Hessian;
-import com.outwit.das.utils.ClassHelper;
 import com.outwit.das.utils.CollectionUtil;
 import com.outwit.das.utils.IocHelper;
 import com.outwit.das.utils.PropsUtil;
+import com.outwit.das.utils.scan.ClassHelper;
 
 /**
  * 

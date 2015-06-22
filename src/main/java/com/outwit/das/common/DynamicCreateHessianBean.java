@@ -11,10 +11,10 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 
 import com.outwit.das.annotation.Hessian;
-import com.outwit.das.utils.ClassHelper;
 import com.outwit.das.utils.CollectionUtil;
 import com.outwit.das.utils.IocHelper;
 import com.outwit.das.utils.StringUtil;
+import com.outwit.das.utils.scan.ClassHelper;
 public class DynamicCreateHessianBean implements ApplicationContextAware,ApplicationListener<ContextRefreshedEvent>{
 	private ApplicationContext applicationContext;  
 	public void onApplicationEvent(ContextRefreshedEvent event) {

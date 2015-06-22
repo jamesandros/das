@@ -1,4 +1,4 @@
-package com.outwit.das.cache;
+package com.outwit.das.utils.cache;
 import java.util.concurrent.TimeUnit;
 
 import com.outwit.das.common.CommonConstant;
